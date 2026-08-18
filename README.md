@@ -1,19 +1,23 @@
-# Lab Activity 3 - Object-Oriented Design and Implementation
+# Lab Activity 3 - Design Pattern Implementation & Unit Testing
 
 **Student Name:** Tim Andre Catanghal  
 **Course:** CPE106L-4
 
 ## Overview
-This project sets up an object-oriented inventory monitoring mini-system in Python. It demonstrates core OOP principles—such as encapsulation, composition, and state-aware data handling—by modeling distinct entities (`Item`), stock-tracking wrappers (`ItemCounter`), and a central management system (`ItemManagement`) to handle adding, reducing, deleting, and displaying inventory records in a structured tabular format.
+This project implements a **Shipping Cost Calculation System** demonstrating the **Strategy Design Pattern** in Python. The system defines a family of interchangeable rate calculation algorithms (`StandardShipping`, `ExpressShipping`, `OvernightShipping`) and uses a context manager (`ShippingCalculator`) to apply the appropriate calculation dynamically at runtime without modifying client code.
+
+## Why the Strategy Pattern Fits the Problem
+1. **Open/Closed Principle (OCP):** New shipping tiers (e.g., `InternationalShipping`, `DroneDelivery`) can be added by creating new subclasses derived from `ShippingStrategy` without modifying existing calculation logic.
+2. **Elimination of Conditional Logic:** Removes brittle `if-elif-else` chains inside order processing methods, delegating cost calculation directly to dedicated strategy objects.
+3. **Runtime Interchangeability:** The shipping method on `ShippingCalculator` can be swapped dynamically as user selections change during checkout.
+4. **Isolated Testability:** Each shipping algorithm is encapsulated in its own class and can be independently verified via automated unit tests.
 
 ## Project Structure
-The repository is modularly organized into three main components:
-* **Source Code (`src/`)**: Contains the core business logic, including the object definitions (`Item`, `ItemCounter`, `ItemManagement`) and the interactive console menu script (`main.py`).
-* **Test Suite (`tests/`)**: Contains automated `unittest` scripts that programmatically verify item creation, duplicate counting, stock reduction, and edge cases.
-* **Virtual Environment (`environment/`)**: Houses the local Python environment to isolate project dependencies.
+* **`src/main.py`**: Contains the core Strategy Pattern classes (`ShippingStrategy`, concrete strategies, `ShippingCalculator`) and an interactive CLI test runner.
+* **`tests/test_shipping.py`**: Automated unit test suite using Python's built-in `unittest` module.
 
-## How to Run Tests
-Run the following commands from the root directory:
-1. Activate the virtual environment: `source environment/bin/activate`
-2. Run Script: `python3 src/main.py`
-3. Run Unit Tests: `python3 -m unittest discover -s tests -p "test_*.py"`
+## How to Run
+
+### 1. Run Interactive CLI
+```bash
+python3 src/main.py
