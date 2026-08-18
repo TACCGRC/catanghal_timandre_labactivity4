@@ -20,4 +20,5 @@ This project implements a **Shipping Cost Calculation System** demonstrating the
 
 ### 1. Run Interactive CLI
 ```bash
-python3 src/main.py
+1. python3 src/main.py
+2. python -m unittest src/test/test_shipping.py -v
