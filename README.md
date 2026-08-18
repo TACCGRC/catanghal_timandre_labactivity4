@@ -1,4 +1,4 @@
-# Lab Activity 3 - Design Pattern Implementation & Unit Testing
+# Lab Activity 4 - Design Pattern Implementation & Unit Testing
 
 **Student Name:** Tim Andre Catanghal  
 **Course:** CPE106L-4
